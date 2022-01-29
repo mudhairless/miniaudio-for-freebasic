@@ -46,7 +46,9 @@ const MA_FALSE = 0
 type ma_handle as any ptr
 type ma_ptr as any ptr
 type ma_proc as sub()
+#ifndef NULL
 const NULL = 0
+#endif
 const MA_SIZE_MAX = &hFFFFFFFF
 
 #if defined(__FB_DOS__) or defined(__FB_UNIX__)
@@ -2387,7 +2389,7 @@ type ma_context_
 
 	union
 		#ifdef __FB_WIN32__
-			win32 as ma_context_win32
+			win32_ as ma_context_win32
 		#else
 			posix as ma_context_posix
 		#endif
